@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gray-500: #a11eaf;
+}
+
+@layer base {
+  h2 {
+    @apply text-2xl font-bold text-red-700;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-500 text-white px-4 py-2 rounded-lg
+      cursor-pointer
+    hover:bg-blue-600 transition;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  }
+}

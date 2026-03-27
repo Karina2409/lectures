@@ -1,0 +1,39 @@
+<div class="min-h-screen bg-gray-100 p-10 space-y-10">
+
+  <div class="bg-white p-6 rounded-xl text-shadow shadow-lg w-full md:w-80">
+    <h2 class="text-xl font-semibold mb-2">Tailwind Card</h2>
+    <p class="text-gray-500 mb-4">Utility-first подход</p>
+
+    <button class="btn-primary">
+      Нажать
+    </button>
+  </div>
+
+  <div class="@container border border-amber-900 p-4 rounded-xl">
+    <h2>Контейнер</h2>
+    <div class="flex flex-col @md:flex-row gap-4">
+      <div class="bg-blue-300 p-4 rounded">Block 1</div>
+      <div class="bg-blue-500 p-4 rounded">Block 2</div>
+    </div>
+  </div>
+
+  <p-card header="Комбинация" class="w-full md:w-80">
+    <p class="text-gray-500 mb-4">
+      PrimeNG + Tailwind
+    </p>
+
+    <button
+      pButton
+      type="button"
+      label="Styled Button"
+      class="bg-green-500! border-none! px-4! py-2! rounded-lg!"
+    ></button>
+  </p-card>
+
+  <input
+    pInputText
+    placeholder="Введите текст"
+    class="p-2 border rounded-lg w-full md:w-80 focus:ring-2 focus:ring-blue-400"
+  />
+
+</div>

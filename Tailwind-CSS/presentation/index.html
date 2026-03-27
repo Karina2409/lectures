@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Tailwind</title>
+
+    <link rel="icon" href="./assets/tailwind-css-logo.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/beige.css">
+
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="section-1">
+            <section class="section-1-1">
+                <h1>Tailwind</h1>
+                Author: <span class="accent-color">Karina Kupryianava</span>
+            </section>
+            <section class="section-1-2">
+                <h2>План лекции</h2>
+                <ol>
+                    <li class="fragment">Что такое Tailwind?</li>
+                    <li class="fragment">Utility-First подход</li>
+                    <li class="fragment">Основы Tailwind</li>
+                    <li class="fragment">Установка Tailwind в проект</li>
+                    <li class="fragment">Демонстрация проекта Angular + Tailwind</li>
+                    <li class="fragment">Проблемы классического подхода CSS</li>
+                    <li class="fragment">Плюсы и минусы использования Tailwind</li>
+                    <li class="fragment">Сравнение Tailwind, PrimeFlex, Bootstrap</li>
+<!--                    <li class="fragment">Случаи из курса по Tailwind</li>-->
+                </ol>
+            </section>
+        </section>
+        <section class="section-2">
+            <section class="section-2-1">
+                <img src="./assets/Tailwind_CSS_Logo.svg.png" class="tailwind-logo">
+                <h2 class="accent-color">Tailwind CSS</h2>
+                <p>это utility-first CSS-фреймворк, который предоставляет набор готовых низкоуровневых классов для быстрого создания пользовательского интерфейса прямо в разметке.</p>
+            </section>
+            <section class="section-2-2">
+                <h6>Пример кода, стилизованный с помощью <span class="accent-color">Tailwind CSS</span></h6>
+                <pre><code data-line-numbers><button class="bg-blue-500
+           hover:bg-blue-700
+           text-white font-bold
+           py-2 px-4 rounded">
+    Нажмите
+</button>
+</code></pre>
+            </section>
+        </section>
+        <section class="section-3">
+            <section class="section-3-1">
+                <h2 class="accent-color">Utility-First</h2>
+                <span class="accent-color">Utility-First CSS</span> — это архитектурный подход CSS, при котором используются готовые классы для стилизации элементов непосредственно в HTML-разметке, вместо того, чтобы создавать пользовательские классы для каждого блока.
+            </section>
+            <section class="section-3-2">
+                <pre><code data-line-numbers><div class="card">
+  <h2 class="card-title">Иван Иванов</h2>
+  <p class="card-text">Frontend Developer</p>
+</div>
+</code></pre>
+                <pre><code data-line-numbers>.card {
+  background-color: white;
+  padding: 24px;
+  border-radius: 12px;
+  width: 300px;
+}
+.card-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.card-text {
+  color: #6b7280;
+  margin-bottom: 16px;
+}</code></pre>
+            </section>
+            <section class="section-3-3">
+                <pre><code data-line-numbers><div class="bg-white p-6 rounded-xl w-72">
+  <h2 class="text-xl font-semibold mb-2">Иван Иванов</h2>
+  <p class="text-gray-500 mb-4">Frontend Developer</p>
+</div></code></pre>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Tailwind CSS</th>
+                        <th>CSS style</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>bg-white</td>
+                        <td>background-color: white</td>
+                    </tr>
+                    <tr>
+                        <td>p-6</td>
+                        <td>padding: 1.5rem</td>
+                    </tr>
+                    <tr>
+                        <td>rounded-xl</td>
+                        <td>border-radius: 0.75rem</td>
+                    </tr>
+                    <tr>
+                        <td>w-72</td>
+                        <td>width: 18rem</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+        <section class="section-4">
+            <section class="section-4-1">
+                <h3 class="accent-color">Основы Tailwind</h3>
+            </section>
+            <section class="section-4-2">
+                <h6>1. Utility Classes (служебные классы)</h6>
+                <p>узкоспециализированные низкоуровневые классы, которые задают стиль для определенного аспекта элемента</p>
+                <a href="https://nerdcave.com/tailwind-cheat-sheet" data-preview-link>Tailwind шпаргалка</a>
+<!--Утилитарные классы в Tailwind CSS — это CSS-классы, каждый из которых применяет к
+HTML-элементу одно конкретное CSS-свойство или очень ограниченный набор свойств.
+Можно комбинировать несколько утилитарных классов для одного элемента, чтобы добиться сложного стиля.-->
+            </section>
+            <section class="section-4-3">
+                <h6>2. Адаптивный дизайн</h6>
+                <img src="assets/img.png"/>
+            </section>
+            <section class="section-4-4">
+                <h6>Пользовательские брейкпойнты</h6>
+                <pre><code>@import "tailwindcss";
+
+@theme {
+  --breakpoint-xs: 30rem;
+  --breakpoint-2xl: 100rem;
+  --breakpoint-3xl: 120rem;
+}</code></pre>
+<!--Мы можем как переопределить уже существующие брейкпойнты (2xl), так и задать новые (xs, 3xl)-->
+            </section>
+            <section class="section-4-5">
+                <h6>Контейнерные функции</h6>
+                <p>стили задаются зависимости от размера родительского элемента</p>
+                <pre><code data-line-numbers="1|2|"><div class="@container">
+  <div class="flex flex-col @md:flex-row">
+    <!-- ... -->
+  </div>
+</div></code></pre>
+<!--Используйте класс @container для обозначения элемента как контейнера, а затем применяйте такие варианты,
+как @sm и @md, для стилизации дочерних элементов в зависимости от размера контейнера:-->
+            </section>
+            <section class="section-4-6">
+                <h6>3. Директивы</h6>
+                <ul>
+<!--Используйте директиву @import для встроенного импорта CSS-файлов, в том числе самого Tailwind:-->
+                    <li>@import</li>
+                    <pre><code>@import "tailwindcss";</code></pre>
+<!--Используйте директиву @theme, чтобы задать пользовательские элементы дизайна для вашего проекта, такие как шрифты, цвета и точки останова:-->
+                    <li>@theme</li>
+                    <pre><code>@theme {
+  --font-display: "Satoshi", "sans-serif";
+  --breakpoint-3xl: 120rem;
+}</code></pre>
+                </ul>
+            </section>
+            <section class="section-4-7">
+                <ul>
+                    <!--для добавления кастомного класса-->
+                    <li>@utility</li>
+                    <pre><code>@utility content-auto {
+  content-visibility: auto;
+}</code></pre>
+<!--Используйте директиву @apply, чтобы встроить любые существующие классы утилит в свой собственный CSS:
+Это удобно, когда вам нужно написать собственный CSS (например, переопределить стили в сторонней библиотеке),
+но при этом вы хотите использовать токены дизайна и привычный синтаксис HTML.-->
+                    <li>@apply</li>
+                    <pre><code>.btn-primary {
+  @apply py-2 px-4 bg-blue-500 text-white
+    font-semibold rounded-lg shadow-md
+    hover:bg-blue-700 focus:outline-none
+    focus:ring-2 focus:ring-blue-400
+    focus:ring-opacity-75;
+}
+</code></pre>
+                </ul>
+            </section>
+            <section class="section-4-8">
+                <h6>4. Система уровней</h6>
+                <ul>
+                    <li>base: для сброса стилей и тегов</li>
+                    <li>components: для многократно используемых элементов</li>
+                    <li>utilities: для специализированных вспомогательных классов</li>
+                </ul>
+            </section>
+            <section class="section-4-9">
+                <h6>Директива @layer</h6>
+                <p>указывает Tailwind, где в каскаде должны располагаться пользовательские стили</p>
+            </section>
+            <section class="section-4-10">
+                <h6>@layer base</h6>
+                <p>Используется для установки базовых стилей для HTML-элементов (h1, p, a и т. д.).</p>
+                <pre><code>@layer base {
+  h1 {
+    @apply text-4xl font-bold;
+  }
+}</code></pre>
+                <p>✅ Используйте, когда:<br>
+                    нужно задать глобальную типографику или сбросить настройки по умолчанию.</p>
+            </section>
+            <section class="section-4-11">
+                <h6>@layer components</h6>
+                <p>Здесь должны находиться многократно используемые стили (кнопки или карточки)</p>
+                <pre><code>@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-blue-600 text-white rounded;
+  }
+}</code></pre>
+                <p>✅ Используйте, когда:<br>
+                    нужно определить компоненты, которые будут использоваться на сайте.</p>
+            </section>
+            <section class="section-4-12">
+                <h6>@layer utilities</h6>
+                <p>Чтобы определить собственные служебные классы, например встроенные классы Tailwind.</p>
+                <pre><code>@layer utilities {
+  .text-shadow {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  }
+}</code></pre>
+                <p>✅ Используйте, когда:<br>
+                    нужны пользовательские вспомогательные функции, которые работают как утилиты Tailwind.</p>
+            </section>
+        </section>
+        <section class="section-5">
+            <section class="section-5-1">
+                <h3 class="accent-color">Установка Tailwind в проект</h3>
+            </section>
+            <section class="section-5-2">
+                <h6><a href="https://tailwindcss.com/docs/installation/using-vite" data-preview-link>Tailwind Installation</a></h6>
+                <ol>
+                    <li>Установить Tailwind CSS</li>
+                    <pre><code>npm install tailwindcss @tailwindcss/postcss postcss --force</code></pre>
+                    <li>Создать файл .postcssrc.json в корне проекта</li>
+                    <pre><code>{
+  "plugins": {
+    "@tailwindcss/postcss": {}
+  }
+}</code></pre>
+                    <li>Импортировать Tailwind в основной CSS файл</li>
+                    <pre><code>@import "tailwindcss";</code></pre>
+                </ol>
+            </section>
+        </section>
+        <section class="section-6">
+            <section class="section-6-1">
+                <h3 class="accent-color">Демонстрация проекта Angular + Tailwind</h3>
+            </section>
+        </section>
+        <section class="section-7">
+            <section class="section-7-1">
+                <h3 class="accent-color">Проблемы классического подхода CSS</h3>
+            </section>
+            <section class="section-7-2">
+                <h6>1. Проблема с именованием</h6>
+                <p>Как назвать класс для синей кнопки, которая немного больше обычной, но меньше большой, и у которой иногда есть иконка?</p>
+                <pre><code>.button-medium-blue-with-optional-icon { }
+.btn-md-primary-icon { }
+.blue-button-with-icon-medium { }
+</code></pre>
+<!--Разные методологии именования: BEM, OOCSS, SMACSS, SUIT CSS, and Beyond-->
+            </section>
+            <section class="section-7-3">
+                <h6>2. Проблема каскадности</h6>
+                <p>Итоговый стиль элемента определяется не одним правилом, а совокупностью всех применимых правил,
+                    которые могут переопределять друг друга в зависимости от специфичности, порядка объявления и наследования</p>
+            </section>
+            <section class="section-7-4">
+                <pre><code data-line-numbers>/* В классе style.css */
+.card {
+ padding: 20px;
+}
+/* Где-то в другом месте кодовой базы */
+.sidebar .card {
+ padding: 10px;
+}
+/* В другом месте нужно переопределить это */
+.main-content .sidebar .card {
+ padding: 20px !important;
+}</code></pre>
+            </section>
+            <section class="section-7-5">
+                <h6>3. Размер файла</h6>
+                <p>Традиционный CSS линейно разрастается по мере развития проекта.
+                    Каждый новый компонент — это новый CSS.</p>
+            </section>
+            <section class="section-7-6">
+                <h6>4. Необходимость переключения контекста</h6>
+                <ul>
+                    <li class="fragment">Пишем HTML-код</li>
+                    <li class="fragment">Переходим в файл CSS</li>
+                    <li class="fragment">Создаем или находим подходящий класс</li>
+                    <li class="fragment">Возвращаемся в HTML</li>
+                    <li class="fragment">Применяем класс</li>
+                    <li class="fragment">Возвращаемся в CSS для настройки</li>
+                    <li class="fragment">Повторяем бесконечно</li>
+                </ul>
+            </section>
+        </section>
+        <section class="section-8">
+            <section class="section-8-1">
+                <h3 class="accent-color">Чем Tailwind лучше?</h3>
+            </section>
+            <section class="section-8-2">
+                <h6>1. Предсказуемость и единообразие</h6>
+                <p>В CSS класс red-color может означать любой оттенок красного</p>
+                <ul>
+                    <li>Интервалы: p-1 (4px), p-2 (8px), p-4 (16px)</li>
+                    <li>Цвета: blue-100 (светло-синий), blue-500 (синий), blue-900 (темно-синий)</li>
+                    <li>Шрифты: text-sm, text-base, text-lg, text-xl</li>
+                </ul>
+            </section>
+            <section class="section-8-3">
+                <h6>2. Ускоренная разработка</h6>
+                <p>Заменить цвет быстрее: bg-blue-300 на bg-green-500</p>
+                <p>Увеличить отступ: p-4 на p-6</p>
+<!--Не нужно переключаться между файлами, но сейчас можно нажать ctrl и кликнуть на класс и тогда будет выполнен переход на класс в css-->
+<!--TODO: Добавить куда-нибудь про вес селекторов (специфичность)-->
+            </section>
+            <section class="section-8-4">
+                <h6>3. Меньший размер пакета</h6>
+                <p>Tailwind использует PurgeCSS для удаления неиспользуемых стилей. В итоговом пакете CSS содержатся только те классы, которые вы действительно используете.</p>
+            </section>
+        </section>
+        <section class="section-9">
+            <section class="section-9-1">
+                <h3 class="accent-color">Минусы использования Tailwind</h3>
+            </section>
+            <section class="section-9-2">
+                <h6>1. Длинные строки классов</h6>
+                <p><b>Решение:</b> использовать @apply с переиспользуемыми компонентами</p>
+            </section>
+            <section class="section-9-3">
+                <h6>2. Очень много классов, новичку трудно ориентироваться</h6>
+                <p><b>Решение:</b> можно использовать шпаргалку</p>
+                <a href="https://nerdcave.com/tailwind-cheat-sheet" data-preview-link>Tailwind шпаргалка</a>
+            </section>
+            <section class="section-9-4">
+                <h6>3. Классы неинформативны</h6>
+<!--Непонятно что в контейнере содержится при просмотре кода-->
+                <p><b>Решение:</b> можно использовать дата-атрибуты</p>
+            </section>
+        </section>
+        <section class="section-10">
+            <section class="section-10-1">
+                <h3 class="accent-color">Сравнение Tailwind, PrimeFlex, Bootstrap</h3>
+            </section>
+            <section class="section-10-2">
+                <h6>Tailwind 🆚 Bootstrap</h6>
+<!--Tailwind CSS — это CSS-фреймворк, ориентированный на удобство использования,
+который позволяет быстро создавать современные веб-сайты, не выходя за рамки HTML.
+Он содержит такие классы, как flex, pt-4, text-center, rotate-90 и т. д.,
+что избавляет вас от необходимости придумывать названия классов для HTML-элементов и писать длинные CSS-стили.-->
+
+<!--Bootstrap - это инструментарий пользовательского интерфейса, в нем есть готовые компоненты
+для кнопок, модальных настроек, аккордеона, панели навигации, нижних колонтитулов и т.д.-->
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Критерий</th>
+                        <th>Tailwind</th>
+                        <th>Bootstrap</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Подход</td>
+                        <td>Utility-first</td>
+                        <td>Component-first</td>
+                    </tr>
+                    <tr>
+                        <td>Контроль над дизайном</td>
+                        <td>Полный</td>
+                        <td>Ограниченный темой</td>
+                    </tr>
+                    <tr>
+                        <td>Кастомизация</td>
+                        <td>Очень высокая</td> <!--За счет возможности создания своих ютилити классов, комбинирования-->
+                        <td>Средняя</td><!--Пользовательские стили-->
+                    </tr>
+                    <tr>
+                        <td>Размер CSS</td>
+                        <td>Маленький</td><!--подключаешь весь фреймворк-->
+                        <td>Большой</td><!--генерирует только используемые классы-->
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section class="section-10-3">
+                <h6>Tailwind 🆚 PrimeFlex</h6>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Критерий</th>
+                        <th>Tailwind</th>
+                        <th>PrimeFlex</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Подход</td>
+                        <td>Utility-first</td>
+                        <td>Utility-first</td>
+                    </tr>
+                    <tr>
+                        <td>Возможности</td>
+                        <td>все</td>
+                        <td>layout (flex, grid), spacing</td>
+                    </tr>
+                    <tr>
+                        <td>Дизайн-система</td>
+                        <td>есть</td>
+                        <td>нет полноценной дизайн-системы</td>
+                    </tr>
+                    <tr>
+                        <td>Подход к стилям</td>
+                        <td>может заменить CSS</td>
+                        <td>комбинируется с CSS</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+<!--        <section class="section-11">-->
+<!--            <section class="section-11-1">-->
+<!--                <h3 class="accent-color">Случаи из курса по Tailwind</h3>-->
+<!--            </section>-->
+<!--        </section>-->
+    </div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+.reveal {
+    letter-spacing: 0.6px !important;
+    word-spacing: 5px !important;
+}
+
+.accent-color {
+    color: var(--r-link-color) !important;
+}
+
+.tailwind-logo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 100px !important;
+}
+
+.section-2-1 {
+    height: 100%;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-2-2 {
+    height: 100%;
+    display: flex !important;
+    flex-direction: column;
+    gap: 4rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-4 > section,
+.section-5 > section,
+.section-7 > section,
+.section-8 > section,
+.section-9 > section,
+.section-10 > section {
+    height: 100%;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h6, code, pre, p, a, img, ul, ol {
+        width: 100%;
+        text-align: left;
+    }
+
+    table {
+        margin: 20px 0;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif !important;
+    text-transform: none !important;
+    font-weight: 600 !important;
+}
