@@ -3,4 +3,3 @@ node_modules/
 .idea
 .angular/
 .vscode/
-/package-lock.json
